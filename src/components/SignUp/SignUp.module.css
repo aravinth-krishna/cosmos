@@ -23,7 +23,7 @@
 }
 
 .heading {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #333;
   margin-bottom: 1.5rem;
   font-weight: 600;
@@ -46,7 +46,7 @@
 .inputField {
   width: 100%;
   padding: 0.75rem 1rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   border: 0.063rem solid #ddd;
   border-radius: 1rem;
   transition: border 0.3s ease, box-shadow 0.3s ease;
@@ -67,8 +67,8 @@
 }
 
 .submitButton {
-  padding: 0.75rem;
-  font-size: 0.75rem;
+  padding: 1rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #fff;
   background: linear-gradient(45deg, #0070f3, #00f5a0);
@@ -89,7 +89,7 @@
 
 .switchAuth {
   margin-top: 1.5rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #555;
   text-align: center;
 }

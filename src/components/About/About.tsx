@@ -28,7 +28,6 @@ const About = () => {
             alt={"About Image"}
             width={600} // Set width to match CSS max-width for aspect ratio
             height={300} // Set height to match CSS height for aspect ratio
-            objectFit="cover" // Ensure image covers the container
             className={styles.heroImg} // Add a className to style the Image component
           />
         </div>
