@@ -1,0 +1,22 @@
+/* Footer.module.css */
+.footer {
+  background-color: #2d3748;
+  padding: 2.5rem 0;
+  text-align: center;
+  width: 100%;
+  color: #cbd5e0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  border-top: none;
+  z-index: 100;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.02rem;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,158 @@
+.header {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  background: linear-gradient(90deg, #0d0d2b, #2c003e, #003366);
+  padding: 0.5rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  flex: 1;
+}
+
+.center {
+  flex: 2;
+  justify-content: center;
+}
+
+.right {
+  flex: 1;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navLinks li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00ccff;
+  transition: width 0.3s ease;
+}
+
+.navLinks li a:hover {
+  color: #00ccff;
+  transform: translateY(-2px);
+}
+
+.navLinks li a:hover::after {
+  width: 100%;
+}
+
+.authLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #00ccff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.authLink:hover {
+  background: #00ccff;
+  color: #0d0d2b;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.icon {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .center {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .mobileMenu {
+    display: block;
+    background: linear-gradient(180deg, #0d0d2b, #2c003e);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    animation: slideDown 0.3s ease-out forwards;
+  }
+  .mobileMenu ul {
+    list-style: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .mobileMenu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

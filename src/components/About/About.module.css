@@ -1,0 +1,171 @@
+.about {
+  background: #080808; /* Even darker, solid background */
+  padding: 3rem 2rem; /* Adjusted padding */
+  color: #d0d0d0; /* Slightly darker text color to fit the darker theme */
+  overflow: hidden;
+  position: relative;
+}
+
+/* About Hero section - Split layout within About */
+.aboutHero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem; /* Adjusted margin */
+  padding: 0 1rem;
+}
+
+.aboutHeroText {
+  flex: 1.5;
+  min-width: 300px;
+  padding-right: 2rem;
+}
+
+.aboutHeroText h1 {
+  font-size: 2.2rem; /* Reduced font size for title */
+  margin-bottom: 1rem; /* Reduced margin */
+  text-transform: uppercase;
+  letter-spacing: 0.1rem; /* Reduced letter spacing */
+  color: #fff;
+  text-shadow: 1px 1px 2px #000000; /* Reduced text shadow */
+}
+
+.aboutHeroText p {
+  font-size: 1.25rem; /* Reduced font size for paragraph */
+  line-height: 1.6; /* Adjusted line height */
+  color: #b0b0b0; /* Slightly darker text color for paragraph */
+}
+
+.aboutHeroImage {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px; /* Keep max-width for image container */
+  height: 300px; /* Keep height for image container */
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Clip image to border-radius */
+}
+
+/* Style the Next.js Image component itself */
+.heroImg {
+  width: 100%; /* Image takes full width of container */
+  height: 100%; /* Image takes full height of container */
+  object-fit: cover; /* Ensure image covers the area */
+  display: block; /* Prevent any extra spacing below image */
+}
+
+/* Features section */
+.featuresSection {
+  text-align: center;
+  padding: 2.5rem 1rem; /* Reduced padding */
+}
+
+.featuresTitle {
+  font-size: 1.8rem; /* Reduced font size for title */
+  margin-bottom: 2.5rem; /* Reduced margin */
+  text-transform: uppercase;
+  letter-spacing: 0.1rem; /* Reduced letter spacing */
+  color: #fff;
+  text-shadow: 1px 1px 2px #000000; /* Reduced text shadow */
+}
+
+/* Responsive grid for feature cards */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Adjusted minmax width */
+  gap: 2rem; /* Reduced gap */
+  padding: 0 1rem;
+  justify-items: center; /* Center items horizontally in grid columns */ /* NEW: Center items */
+  align-items: center;
+}
+
+.featureCard {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Even darker, more transparent card background */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Even darker border */
+  border-radius: 8px; /* Further reduced border radius */
+  padding: 1.6rem; /* Reduced padding */
+  backdrop-filter: blur(6px); /* Slightly reduced blur */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Reduced shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px); /* Reduced hover translate */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Reduced hover shadow */
+}
+
+.featureCard h3 {
+  margin: 1rem 0 0.6rem; /* Reduced margins */
+  font-size: 1.2rem; /* Reduced font size for card title */
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.05rem; /* Reduced letter spacing */
+}
+
+.featureCard p {
+  font-size: 0.95rem; /* Reduced font size for card text */
+  line-height: 1.5; /* Adjusted line height */
+  color: #b0b0b0; /* Slightly darker text color for card text */
+}
+
+/* Icon pulsing effect - REMOVED */
+.iconWrapper {
+  font-size: 2rem; /* Reduced icon size */
+  color: #ffdd59; /* Gold/Yellow accent color for icons - you can change this */
+  /* animation: pulse 2s infinite; - ANIMATION REMOVED */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .aboutHero {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 3rem; /* Adjusted margin on mobile */
+  }
+  .aboutHeroText {
+    padding-right: 0;
+    margin-bottom: 1.5rem; /* Adjusted margin on mobile */
+  }
+  .aboutHeroText h1 {
+    font-size: 1.9rem; /* Further reduced font size on mobile */
+  }
+  .aboutHeroImage {
+    margin-top: 1.5rem; /* Adjusted margin on mobile */
+    height: 240px; /* Further reduced height on mobile */
+    border-radius: 8px; /* Further reduced border-radius on mobile */
+  }
+  .featuresTitle {
+    font-size: 1.9rem; /* Further reduced title size on mobile */
+    margin-bottom: 2rem; /* Adjusted margin on mobile */
+  }
+  .featuresGrid {
+    gap: 1.8rem; /* Adjusted gap on mobile */
+    padding: 0; /* Reset padding on mobile */
+  }
+  .featureCard {
+    padding: 1.4rem; /* Further reduced card padding on mobile */
+    border-radius: 6px; /* Further reduced border-radius on mobile */
+  }
+  .iconWrapper {
+    font-size: 1.8rem; /* Further reduced icon size on mobile */
+  }
+  .featureCard h3 {
+    font-size: 1.2rem; /* Card title size remains same on mobile */
+  }
+  .featureCard p {
+    font-size: 0.9rem; /* Further reduced card text size on mobile */
+  }
+}

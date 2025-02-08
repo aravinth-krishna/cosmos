@@ -1,0 +1,169 @@
+.featuresSection {
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  margin-bottom: 3rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.03rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.introText {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: #d4d4d4;
+  text-align: center;
+  margin: 0 auto 3rem;
+  max-width: 700px;
+}
+
+/* Wrapper for both carousels */
+.carouselWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Common carousel container styling */
+.topCarousel,
+.bottomCarousel {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top carousel inner container – animates from left to right */
+.carouselInnerLeftToRight {
+  display: flex;
+  gap: 2.5rem;
+  width: fit-content;
+  animation: slideLtoR 20s linear infinite;
+}
+
+/* Bottom carousel inner container – animates from right to left */
+.carouselInnerRightToLeft {
+  display: flex;
+  gap: 2.5rem;
+  width: fit-content;
+  animation: slideRtoL 20s linear infinite;
+}
+
+/* Animation: from left-to-right (top carousel) */
+@keyframes slideLtoR {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Animation: from right-to-left (bottom carousel) */
+@keyframes slideRtoL {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Feature card styling (shared with your previous design) */
+.featureCard {
+  background-color: #1e1e1e;
+  flex: 0 0 auto;
+  width: 320px;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.featureIcon {
+  font-size: 1.5rem;
+  color: #6dd5ed;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.featureCardTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 1.5;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+}
+
+.featureCardDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c0c0c0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .featuresSection {
+    padding: 4rem 0;
+  }
+  .container {
+    width: 95%;
+    padding: 2.5rem;
+  }
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .introText {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  .carouselWrapper {
+    gap: 2rem;
+  }
+  .featureCard {
+    width: 280px;
+    padding: 1.5rem;
+  }
+  .featureIcon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .featureCardTitle {
+    font-size: 1.3rem;
+  }
+  .featureCardDescription {
+    font-size: 1rem;
+  }
+}

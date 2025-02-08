@@ -1,0 +1,98 @@
+.docsSection {
+  background-color: #0a0a0a; /* Dark background, same as Features section */
+  color: #f0f0f0; /* Text color, same as Features section */
+  padding: 3rem 0; /* Padding, same as Features section */
+  text-align: center; /* Center text within the section */
+}
+
+.container {
+  width: 90%; /* Container width, same as Features section */
+  max-width: 1200px; /* Max width, same as Features section */
+  margin: 0 auto; /* Center container, same as Features section */
+  padding: 2.5rem; /* Padding, same as Features section */
+  margin-bottom: 3rem;
+}
+
+.header {
+  margin-bottom: 3rem; /* Margin below header, same as Features section */
+}
+
+.sectionTitle {
+  /* sectionTitle style, same as Features section */
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.03rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.introText {
+  /* introText style, same as Features section */
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: #d4d4d4;
+  text-align: center;
+  margin: 0 auto 3rem;
+  max-width: 700px;
+}
+
+.docsContent {
+  padding: 2rem 0; /* Padding for the main content area */
+}
+
+.contentText {
+  font-size: 1.05rem; /* Slightly larger text for content paragraph */
+  line-height: 1.7;
+  color: #d0d0d0; /* Slightly lighter text color for content */
+  margin-bottom: 2rem; /* Margin below the text paragraph */
+  max-width: 750px; /* Slightly wider max width for content text */
+  margin-left: auto;
+  margin-right: auto; /* Center the content text */
+}
+
+.githubButton {
+  padding: 0.8rem 2rem; /* Button padding */
+  font-size: 1.1rem; /* Button font size */
+  color: #fff; /* Button text color */
+  background-color: #333; /* Dark button background */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Button border radius */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Button shadow */
+}
+
+.githubButton:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increased shadow on hover */
+}
+
+/* Responsive adjustments (similar to Features and About) */
+@media (max-width: 768px) {
+  .docsSection {
+    padding: 4rem 0;
+  }
+  .container {
+    width: 95%;
+    padding: 2.5rem;
+  }
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .introText {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  .contentText {
+    font-size: 1rem; /* Reduced font size for mobile */
+  }
+  .githubButton {
+    font-size: 1rem; /* Reduced button font size for mobile */
+    padding: 0.7rem 1.8rem; /* Reduced button padding for mobile */
+  }
+}

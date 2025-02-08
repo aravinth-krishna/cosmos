@@ -1,0 +1,98 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button {
+  background: linear-gradient(
+    to right,
+    #2b425a,
+    #0a2954
+  ); /* Dark gradient background */
+  color: #f0f6fc; /* Light text color */
+  padding: 1rem 2rem; /* Larger padding */
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1.15rem; /* More rounded corners */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smoother transitions */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  overflow: hidden; /* Needed for pseudo-element animation */
+  position: relative; /* Needed for pseudo-element positioning */
+}
+
+.button:hover {
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Smaller shadow on click */
+}
+
+/* Animated gradient on hover */
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Wider than the button */
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #3b444f,
+    #1f2429,
+    #3b444f
+  ); /* Animated gradient */
+  opacity: 0.5;
+  z-index: -1; /* Behind the button text */
+  animation: gradientShift 3s linear infinite; /* Infinite animation */
+  transition: opacity 0.5s ease; /* Smooth opacity transition */
+}
+
+.button:hover::before {
+  opacity: 0.8;
+}
+
+@keyframes gradientShift {
+  0% {
+    transform: translateX(-50%); /* Start off-screen */
+  }
+  100% {
+    transform: translateX(50%); /* Move across the button */
+  }
+}
+
+/* Optional: Add a subtle glow effect on hover */
+.button:hover {
+  /* Use a very subtle box-shadow with a spread radius */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 10px rgba(50, 150, 250, 0.2); /* Glow */
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 768px) {
+  .button {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Optional: Add a secondary button style */
+.secondary {
+  background-color: transparent;
+  color: #0070f3;
+  border: 2px solid #0070f3;
+}
+
+.secondary:hover {
+  background-color: #e6f2ff; /* Light blue background on hover */
+  color: #0056b3;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.secondary:active {
+  background-color: #cce5ff;
+  transform: translateY(0); /* No lift on click */
+}
