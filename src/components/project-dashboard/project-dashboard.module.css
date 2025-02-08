@@ -1,69 +1,304 @@
-/* components/project-dashboard/project-dashboard.module.css */
-
-.projectDashboardLayout {
-  /* Layout for the project dashboard, inside main dashboard content */
+/* ProjectDashboardLayout.tsx Styles */
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh; /* Ensure full height */
+  background-color: #121212; /* Dark background */
+  color: #f0f0f0; /* Light text color */
 }
 
+.dashboardContent {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  padding: 2rem;
+  overflow-y: auto; /* Enable vertical scrolling in main content if needed */
+}
+
+/* ProjectDashboardNav.tsx Styles */
 .projectDashboardNav {
-  background-color: #1e1e1e;
-  border-bottom: 1px solid #2a2a2a;
-  padding: 0 1rem;
+  background-color: #1e1e1e; /* Slightly lighter background for nav */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3a3a3a;
 }
 
-.projectNavList {
+.projectName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navLinks {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Horizontal navigation tabs */
+  display: flex;
 }
 
-.navItem {
-  margin-right: 0.5rem; /* Spacing between tabs */
-}
-
-.navItem:last-child {
-  margin-right: 0; /* No margin for last tab */
+.navLinks li {
+  margin-left: 1.5rem;
 }
 
 .navLink {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #d0d0d0;
   text-decoration: none;
-  border-radius: 8px 8px 0 0; /* Rounded top corners */
-  background-color: #2a2a2a; /* Tab background */
-  transition: background-color 0.2s ease;
+  color: #d0d0d0;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
 }
 
-.navLink:hover,
-.activeNavItem .navLink {
-  background-color: #3a3a3a; /* Darker on hover and active */
+.navLink:hover {
   color: #fff;
 }
 
-.activeNavItem .navLink {
-  font-weight: bold;
+/* ChatView.tsx Styles */
+.chatViewContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill main content height */
 }
 
-.projectDashboardMainContent {
-  padding: 1.5rem;
-  background-color: #121212; /* Main content background */
-  border-radius: 0 0 12px 12px; /* Rounded bottom corners to match tabs */
-}
-
-.projectTabView {
-  /* Styling for content within each tab view */
+.messageList {
+  flex: 1; /* Take up most of the space */
   padding: 1rem;
+  overflow-y: auto; /* Scrollable message area */
+  border-bottom: 1px solid #3a3a3a;
 }
 
-.projectTabView h3 {
-  font-size: 1.5rem;
+.message {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #2a2a2a; /* Message background */
+  border-radius: 8px;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; /* Align sender and timestamp at the bottom line */
+  margin-bottom: 0.25rem;
+}
+
+.messageSender {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.messageTimestamp {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.messageText {
+  margin: 0;
+  white-space: pre-line; /* Preserve line breaks */
+}
+
+.chatInputArea {
+  padding: 1rem;
+  display: flex;
+  border-top: 1px solid #3a3a3a;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  margin-right: 0.75rem;
+}
+
+.sendButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #6dd5ed;
+  color: #121212;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sendButton:hover {
+  background-color: #53b3c7;
+}
+
+/* DetailsView.tsx Styles */
+.detailsViewContainer {
+  padding: 2rem;
+}
+
+.detailsDisplay {
+  /* Styles for display mode */
+}
+
+.detailsForm {
+  /* Styles for edit mode form */
+}
+
+.detailSection {
+  margin-bottom: 2rem;
+}
+
+.detailSection h3 {
+  margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
-.projectTabView p {
-  color: #c0c0c0;
+.detailSection p,
+.detailSection ul,
+.detailSection pre {
+  margin-top: 0;
   line-height: 1.6;
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto; /* For preformatted JSON or long links */
+  white-space: pre-wrap; /* Wrap long text in <pre> */
+}
+.detailSection ul {
+  padding-left: 2rem;
 }
 
-/* Responsive adjustments if needed - can add media queries here */
+.detailSection li {
+  margin-bottom: 0.5rem;
+}
+
+.detailsActions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detailsActions button {
+  margin-left: 1rem;
+}
+
+.detailsTextarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  font-family: monospace; /* Monospace font for JSON */
+  font-size: 1rem;
+}
+
+/* TasksView.tsx Styles */
+.tasksViewContainer {
+  padding: 2rem;
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.taskItem {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.taskTitle {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.taskDescription {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #d0d0d0;
+}
+
+.taskMeta {
+  display: flex;
+  flex-wrap: wrap; /* Allow meta items to wrap on smaller screens */
+  gap: 1rem; /* Spacing between meta items */
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.taskStatus,
+.taskPriority,
+.taskAssignee,
+.taskDueDate {
+  /* Style individual meta items if needed */
+}
+
+/* TeamView.tsx Styles */
+.teamViewContainer {
+  padding: 2rem;
+}
+
+.teamList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teamMemberItem {
+  background-color: #2a2a2a;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.memberDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.memberName {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.memberUsername,
+.memberEmail {
+  font-size: 0.9rem;
+  color: #d0d0d0;
+}
+
+.memberRole {
+  font-weight: bold;
+  color: #6dd5ed; /* Accent color for role */
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: #3a3a3a; /* Slightly darker background for role badge */
+  font-size: 0.9rem;
+}
+
+/* TimelineView.tsx Styles */
+.timelineViewContainer {
+  padding: 2rem;
+}
+
+.timelineViewContainer pre {
+  /* Style for raw JSON display in TimelineView */
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

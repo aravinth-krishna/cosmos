@@ -1,31 +1,21 @@
 import styles from "./project-dashboard.module.css";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation"; // Import useRouter and usePathname
 
 interface ProjectDashboardNavProps {
   projectId: string;
+  projectName: string;
 }
 
 const ProjectDashboardNav: React.FC<ProjectDashboardNavProps> = ({
   projectId,
+  projectName,
 }) => {
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const isActive = (path: string) => {
-    return pathname.startsWith(path); // Check if current path starts with the tab's path
-  };
-
   return (
     <nav className={styles.projectDashboardNav}>
-      <ul className={styles.projectNavList}>
-        <li
-          className={`${styles.navItem} ${
-            isActive(`/dashboard/projects/${projectId}/tasks`)
-              ? styles.activeNavItem
-              : ""
-          }`}
-        >
+      <h2 className={styles.projectName}>{projectName}</h2>{" "}
+      {/* Display project name */}
+      <ul className={styles.navLinks}>
+        <li>
           <Link
             href={`/dashboard/projects/${projectId}/tasks`}
             className={styles.navLink}
@@ -33,13 +23,7 @@ const ProjectDashboardNav: React.FC<ProjectDashboardNavProps> = ({
             Tasks
           </Link>
         </li>
-        <li
-          className={`${styles.navItem} ${
-            isActive(`/dashboard/projects/${projectId}/timeline`)
-              ? styles.activeNavItem
-              : ""
-          }`}
-        >
+        <li>
           <Link
             href={`/dashboard/projects/${projectId}/timeline`}
             className={styles.navLink}
@@ -47,13 +31,7 @@ const ProjectDashboardNav: React.FC<ProjectDashboardNavProps> = ({
             Timeline
           </Link>
         </li>
-        <li
-          className={`${styles.navItem} ${
-            isActive(`/dashboard/projects/${projectId}/team`)
-              ? styles.activeNavItem
-              : ""
-          }`}
-        >
+        <li>
           <Link
             href={`/dashboard/projects/${projectId}/team`}
             className={styles.navLink}
@@ -61,13 +39,7 @@ const ProjectDashboardNav: React.FC<ProjectDashboardNavProps> = ({
             Team
           </Link>
         </li>
-        <li
-          className={`${styles.navItem} ${
-            isActive(`/dashboard/projects/${projectId}/details`)
-              ? styles.activeNavItem
-              : ""
-          }`}
-        >
+        <li>
           <Link
             href={`/dashboard/projects/${projectId}/details`}
             className={styles.navLink}
@@ -75,13 +47,7 @@ const ProjectDashboardNav: React.FC<ProjectDashboardNavProps> = ({
             Details
           </Link>
         </li>
-        <li
-          className={`${styles.navItem} ${
-            isActive(`/dashboard/projects/${projectId}/chat`)
-              ? styles.activeNavItem
-              : ""
-          }`}
-        >
+        <li>
           <Link
             href={`/dashboard/projects/${projectId}/chat`}
             className={styles.navLink}

@@ -180,3 +180,129 @@
     grid-template-columns: 1fr; /* Single column on mobile */
   }
 }
+
+/* In dashboard.module.css */
+.projectCardLink {
+  text-decoration: none; /* Remove default link underline */
+  color: inherit; /* Inherit text color from parent */
+  display: block; /* Make Link a block to cover the whole card area */
+}
+
+.projectCardLink:hover .projectCard {
+  /* Apply hover effect to .projectCard when .projectCardLink is hovered */
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ... previous styles ... */
+
+/* Modal Styles */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure modal is on top */
+}
+
+.modalContent {
+  background-color: #1e1e1e; /* Modal content background */
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Max width for larger screens */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modalTitle {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  margin-top: 2rem;
+}
+
+.modalActions button {
+  margin-left: 1rem; /* Spacing between buttons */
+}
+
+/* Form Styles within Modal */
+.createProjectForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #d0d0d0;
+}
+
+.formInput,
+.formTextarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.formTextarea {
+  min-height: 100px; /* Minimum height for textarea */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Button Styles (reused in modal actions) */
+.primaryButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #6dd5ed; /* Accent color button */
+  color: #121212; /* Dark text on accent color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primaryButton:hover {
+  background-color: #53b3c7;
+}
+
+.secondaryButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #3a3a3a; /* Secondary button background */
+  color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.secondaryButton:hover {
+  background-color: #4a4a4a;
+}
+
+/* src/components/dashboard/dashboard.module.css */
+
+/* Add this style for error messages in modal */
+.errorMessage {
+  color: #ff4d4d; /* Error text color - red */
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,119 @@
+- .env
+- .gitignore
+- docs
+- eslint.config.mjs
+- next-env.d.ts
+- next.config.ts
+- package-lock.json
+- package.json
+- prisma
+  - migrations
+    - 20250208055520_init
+      - migration.sql
+    - 20250208124953_init
+      - migration.sql
+    - migration_lock.toml
+  - schema.prisma
+- public
+  - about-image.jpg
+  - hero-background.jpg
+- README.md
+- src
+  - app
+    - api
+      - auth
+        - sign-in
+          - route.ts
+        - sign-up
+          - projects
+          - route.ts
+      - projects
+        - route.ts
+        - [projectId]
+          - chat
+            - route.ts
+          - details
+            - route.ts
+          - route.ts
+          - tasks
+            - route.ts
+            - [taskId]
+              - progress
+                - route.ts
+              - route.ts
+          - team
+            - route.ts
+            - [userId]
+              - route.ts
+          - timeline
+            - route.ts
+      - users
+        - route.ts
+    - dashboard
+      - page.module.css
+      - page.tsx
+      - [projectId]
+        - page.tsx
+    - favicon.ico
+    - globals.css
+    - layout.tsx
+    - page.module.css
+    - page.tsx
+    - signin
+      - page.module.css
+      - page.tsx
+    - signup
+      - page.module.css
+      - page.tsx
+  - components
+    - About
+      - About.module.css
+      - About.tsx
+    - dashboard
+      - CreateProjectButton.tsx
+      - dashboard.module.css
+      - DashboardLayout.tsx
+      - DashboardSidebar.tsx
+      - DashboardTopNav.tsx
+      - ProjectCard.tsx
+      - ProjectList.tsx
+    - Docs
+      - Docs.module.css
+      - Docs.tsx
+    - Features
+      - Features.module.css
+      - Features.tsx
+    - Footer
+      - Footer.module.css
+      - Footer.tsx
+    - GetStartedButton
+      - GetStartedButton.module.css
+      - GetStartedButton.tsx
+    - Hero
+      - Hero.module.css
+      - Hero.tsx
+    - Navbar
+      - Navbar.module.css
+      - Navbar.tsx
+    - project-dashboard
+      - ChatView.tsx
+      - DetailsView.tsx
+      - project-dashboard.module.css
+      - ProjectDashboardLayout.tsx
+      - ProjectDashboardNav.tsx
+      - TasksView.tsx
+      - TeamView.tsx
+      - TimelineView.tsx
+    - SignIn
+      - SignIn.module.css
+      - SignIn.tsx
+    - SignOutButton
+      - SignOutButton.module.css
+      - SignOutButton.tsx
+    - SignUp
+      - SignUp.module.css
+      - SignUp.tsx
+  - lib
+    - auth.ts
+    - prisma.ts
+- tsconfig.json
