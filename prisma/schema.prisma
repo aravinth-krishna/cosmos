@@ -8,18 +8,125 @@ datasource db {
 }
 
 model User {
-  id             String   @id @default(uuid())
+  id             String        @id @default(uuid())
   firstName      String
   lastName       String
-  username       String   @unique
-  email          String   @unique
+  username       String        @unique
+  email          String        @unique
   hashedPassword String
-  role           Role     @default(USER)
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  role           Role          @default(USER)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  projects       ProjectTeam[]
+  assignedTasks  Task[]        @relation("TaskAssignee")
+  chatMessages   ChatMessage[]
 }
 
 enum Role {
   USER
   ADMIN
+}
+
+model Project {
+  id           String           @id @default(uuid())
+  name         String
+  description  String?
+  startDate    DateTime?
+  endDate      DateTime?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  teamMembers  ProjectTeam[]
+  tasks        Task[]
+  details      ProjectDetail?
+  timeline     ProjectTimeline?
+  createdBy    String // To track who created the project, can link to User if needed, or keep it simple
+  chatMessages ChatMessage[]
+
+  @@index([createdBy]) // Index for efficient filtering/searching by creator
+}
+
+model ProjectTeam {
+  id        String   @id @default(uuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      TeamRole @default(MEMBER)
+
+  @@unique([projectId, userId]) // Ensure unique team members per project
+  @@index([projectId])
+  @@index([userId])
+}
+
+enum TeamRole {
+  MEMBER
+  ADMIN // Project Admin - different from global ADMIN role
+  VIEWER // Read-only access
+}
+
+model Task {
+  id          String       @id @default(uuid())
+  projectId   String
+  project     Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  name        String
+  description String?
+  status      TaskStatus   @default(TODO)
+  priority    TaskPriority @default(MEDIUM)
+  startDate   DateTime?
+  dueDate     DateTime?
+  assigneeId  String?
+  assignee    User?        @relation(name: "TaskAssignee", fields: [assigneeId], references: [id])
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([projectId])
+  @@index([assigneeId])
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  COMPLETED
+  ON_HOLD
+  CANCELLED
+}
+
+enum TaskPriority {
+  HIGH
+  MEDIUM
+  LOW
+}
+
+model ProjectDetail {
+  id           String  @id @default(uuid())
+  projectId    String  @unique
+  project      Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  links        Json? // Store project links as JSON array (or create separate Link model for more structure)
+  notes        String? // General project notes/additional details
+  otherDetails Json? // For any other unstructured details as JSON
+
+  @@index([projectId])
+}
+
+model ProjectTimeline {
+  id        String  @id @default(uuid())
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  ganttData Json? // Store Gantt chart data as JSON (or consider more structured approach for complex data)
+
+  @@index([projectId])
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  message   String
+  createdAt DateTime @default(now())
+
+  @@index([projectId])
+  @@index([userId])
 }

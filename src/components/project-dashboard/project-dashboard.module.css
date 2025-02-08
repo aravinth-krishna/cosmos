@@ -1,0 +1,69 @@
+/* components/project-dashboard/project-dashboard.module.css */
+
+.projectDashboardLayout {
+  /* Layout for the project dashboard, inside main dashboard content */
+}
+
+.projectDashboardNav {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #2a2a2a;
+  padding: 0 1rem;
+}
+
+.projectNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Horizontal navigation tabs */
+}
+
+.navItem {
+  margin-right: 0.5rem; /* Spacing between tabs */
+}
+
+.navItem:last-child {
+  margin-right: 0; /* No margin for last tab */
+}
+
+.navLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #d0d0d0;
+  text-decoration: none;
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  background-color: #2a2a2a; /* Tab background */
+  transition: background-color 0.2s ease;
+}
+
+.navLink:hover,
+.activeNavItem .navLink {
+  background-color: #3a3a3a; /* Darker on hover and active */
+  color: #fff;
+}
+
+.activeNavItem .navLink {
+  font-weight: bold;
+}
+
+.projectDashboardMainContent {
+  padding: 1.5rem;
+  background-color: #121212; /* Main content background */
+  border-radius: 0 0 12px 12px; /* Rounded bottom corners to match tabs */
+}
+
+.projectTabView {
+  /* Styling for content within each tab view */
+  padding: 1rem;
+}
+
+.projectTabView h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.projectTabView p {
+  color: #c0c0c0;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments if needed - can add media queries here */

@@ -1,12 +1,12 @@
-import SignOutButton from "@/components/SignOutButton/SignOutButton";
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import ProjectList from "@/components/dashboard/ProjectList";
 
-const page = () => {
+const DashboardPage = () => {
   return (
-    <>
-      <div>Dashboard</div>
-      <SignOutButton />
-    </>
+    <DashboardLayout>
+      <ProjectList />
+    </DashboardLayout>
   );
 };
 
-export default page;
+export default DashboardPage;

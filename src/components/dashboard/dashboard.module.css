@@ -1,0 +1,182 @@
+/* components/dashboard/dashboard.module.css */
+
+/* Dashboard Layout */
+.dashboardLayout {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar width, rest for content */
+  grid-template-rows: auto 1fr; /* TopNav height, rest for main content */
+  min-height: 100vh; /* Full viewport height */
+  background-color: #0a0a0a; /* Dark background */
+  color: #f0f0f0; /* Light text color */
+}
+
+.dashboardTopNav {
+  grid-column: 1 / 3; /* Span across columns */
+  padding: 1rem 2rem;
+  background-color: #121212; /* Slightly darker top nav */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.navBrand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navActions {
+  /* Style for actions in top nav (SignOutButton, Profile) */
+}
+
+.dashboardSidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: #1e1e1e; /* Sidebar background */
+  padding: 2rem 1rem;
+  border-right: 1px solid #2a2a2a;
+}
+
+.sidebarNavigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin-bottom: 0.75rem;
+}
+
+.navLink,
+.navLinkPlaceholder {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #d0d0d0;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: #2a2a2a;
+}
+
+.navLinkPlaceholder {
+  color: #777; /* Grayed out placeholder links */
+  pointer-events: none; /* Make them non-interactive */
+}
+
+.dashboardMainContent {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding: 2rem;
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Project List */
+.projectListContainer {
+  /* Container for project list and header */
+}
+
+.projectListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.projectListHeader h2 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* Responsive grid */
+  gap: 1.5rem;
+}
+
+/* Project Card */
+.projectCard {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.projectCardTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.projectCardDescription {
+  color: #c0c0c0;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.projectCardStatus,
+.projectCardProgress,
+.projectCardDueDate {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.25rem;
+}
+
+/* Create Project Button */
+.createProjectButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #6dd5ed; /* Accent color button */
+  color: #121212; /* Dark text on accent color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.createProjectButton:hover {
+  background-color: #53b3c7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboardLayout {
+    grid-template-columns: 1fr; /* Sidebar takes full width on mobile */
+  }
+  .dashboardSidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2; /* Sidebar at the top on mobile */
+    border-right: none;
+    border-bottom: 1px solid #2a2a2a; /* Add bottom border instead */
+    padding: 1rem; /* Less padding on mobile sidebar */
+  }
+  .dashboardMainContent {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding: 1.5rem; /* Less padding on mobile main content */
+  }
+  .projectListHeader {
+    flex-direction: column; /* Stack header elements on mobile */
+    align-items: flex-start; /* Align header elements to the start */
+    margin-bottom: 1rem;
+  }
+  .projectListHeader h2 {
+    margin-bottom: 0.5rem;
+  }
+  .projectList {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}
